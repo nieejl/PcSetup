@@ -8,6 +8,7 @@ choco install visualstudio2019-workload-vctools -y
 choco install visualstudio2019buildtools -y
 choco install visualstudio2019-workload-netcoretools -y
 choco install nugetpackagemanager -y
+choco install visualfsharptools -y
 
 REM SDKs and Version Control
 choco install python -y
