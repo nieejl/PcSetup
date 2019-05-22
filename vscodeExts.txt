@@ -1,0 +1,6 @@
+code --install-extension Ionide.ionide-fsharp
+code --install-extension Cake-build.cake-vscode
+code --install-extension ms-vscode.cpptools
+code --install-extension ms-vscode.csharp
+code --install-extension ms-python.python
+code --install-extension chenxsan.vscode-standardjs
