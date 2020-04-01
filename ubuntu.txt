@@ -1,0 +1,76 @@
+# dependencies
+sudo apt-get update
+sudo apt-get install build-essential checkinstall
+sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev -y
+
+# install pip for python 3
+sudo apt install python-pip -y
+
+# install python 2.7
+cd /usr/src
+sudo wget https://www.python.org/ftp/python/2.7.17/Python-2.7.17.tgz
+sudo tar xzf Python-2.7.17.tgz
+cd Python-2.7.17
+sudo ./configure --enable-optimizations
+sudo make altinstall
+cd ..
+rm Python-2.7.17.tgz
+
+# Install useful tools:
+#sudo snap install --classic code -y
+#sudo apt install vim -y
+
+# get folders from other media:
+dl_exq=/media/nief/HDD2_Spinpoint/Download/exquisitor/
+cp -r $exq_dl/backend ~/exquisitor/
+cp -r $exq_dl/frontend ~/exquisitor/
+cp -r $exq_dl/pylucene/ ~/exquisitor/
+cp -r $exq_dl/usr/ ~/
+cp $exq_dl/README_Backend.md ~/exquisitor
+cp $exq_dl/README_Frontend.md ~/exquisitor
+
+# BACK END
+
+echo "export PATH=$PATH:/home/$USER/usr/bin" >> ~/.bashrc
+echo "export LIBRARY_PATH=/home/$USER/usr/lib:$LIBRARY_PATH" >> ~/.bashrc
+echo "export LD_LIBRARY_PATH=/home/$USER/usr/lib:$LD_LIBRARY_PATH" >> ~/.bashrc
+echo "export C_INCLUDE_PATH=/home/$USER/usr/include:$C_INCLUDE_PATH" >> ~/.bashrc
+echo "export CPLUS_INCLUDE_PATH=/home/$USER/usr/include:$CPLUS_INCLUDE_PATH" >> ~/.bashrc
+
+# Add vlfeat to /usr/local/lib/
+cd ~/exquisitor/backend/include/
+sudo ln -s $PWD/vl /usr/local/lib/
+sudo ln -s $PWD/vlfeat/bin/glnax64/bin/libvl.so
+# extra - TODO: really necessary?
+sudo ln -s ~/usr/include/vl /usr/include/vl
+sudo ln -s $PWD/vl /usr/local/include/
+
+# Install hdf5
+sudo apt install libhdf5-dev -y
+
+# and for python
+pip2 install h5py -y
+
+# remaining helpful tools
+pip2 install numpy
+pip2 install gensim
+pip2 install nltk
+pip2 install stop-words
+pip2 install scipy
+
+# add hdf5 symlink
+sudo ln -s /usr/include/hdf5/serial ~/exquisitor/backend/include/hdf5
+sudo ln -s /usr/include/hdf5/serial /usr/include/hdf5
+
+# then add  '/usr/include/hdf5/serial/' 
+# to include_dirs in ~/exquisitor/backend/exquisitor/setup.py 
+# and write full path of hdf5 in libraries. 'hdf5' -> '/usr/include/hdf5'
+# change LDFLAGS in makefile-ubuntu: -lhdf5 -> -Lusr/include/hdf5
+
+# do the same for -lvl -> -Lusr/local/lib/vl
+
+
+
+# FRONT END
+pip2 install flask
+pip2 install flask_cors
