@@ -65,9 +65,9 @@ sudo ln -s /usr/include/hdf5/serial /usr/include/hdf5
 # then add  '/usr/include/hdf5/serial/' 
 # to include_dirs in ~/exquisitor/backend/exquisitor/setup.py 
 # and write full path of hdf5 in libraries. 'hdf5' -> '/usr/include/hdf5'
-# change LDFLAGS in makefile-ubuntu: -lhdf5 -> -Lusr/include/hdf5
+# change LDFLAGS in makefile-ubuntu: -lhdf5 -> -L/usr/include/hdf5
 
-# do the same for -lvl -> -Lusr/local/lib/vl
+# do the same for -lvl -> -L/usr/local/lib/vl
 
 
 
