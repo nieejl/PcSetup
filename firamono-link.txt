@@ -10,3 +10,16 @@ code . $PROFILE
 oh-my-posh init pwsh --config "~/downloads/avit.omp.json" | Invoke-Expression
 
 Enable acrylic and set opacity.
+
+Set-ExecutionPolicy Unrestricted
+PowerShellGet\Install-Module posh-git -Scope CurrentUser -Force
+Install-Module PSReadLine -AllowPrerelease -Force
+
+https://www.hanselman.com/blog/my-ultimate-powershell-prompt-with-oh-my-posh-and-the-windows-terminal
+https://devblogs.microsoft.com/powershell/announcing-psreadline-2-1-with-predictive-intellisense/
+
+Import-Module posh-git
+Import-Module PSReadLine
+Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -Colors @{ InlinePrediction = '#2F7004'}
+
