@@ -1,0 +1,12 @@
+# First install:
+winget install JanDeDobbeleer.OhMyPosh -s winget
+https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraMono.zip
+
+# Run:
+New-Item -Path $PROFILE -Type File -Force
+
+code . $PROFILE
+# Copy in
+oh-my-posh init pwsh --config "~/downloads/avit.omp.json" | Invoke-Expression
+
+Enable acrylic and set opacity.
