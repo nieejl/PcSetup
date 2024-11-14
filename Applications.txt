@@ -1,26 +1,22 @@
 REM Install Editors and IDEs:
 choco install vscode -y
-choco install visualstudio2019community -y
+choco install visualstudio2022community-preview --pre  -y
 choco install notepadplusplus -y
 
 REM Visual Studio Packages and tools
-choco install visualstudio2019-workload-vctools -y
+choco install visualstudio2022-workload-vctools -y
 choco install visualstudio2019buildtools -y
-choco install visualstudio2019-workload-netcoretools -y
-choco install nugetpackagemanager -y
-choco install visualfsharptools -y
+choco install visualstudio2022-workload-netcoretools -y
 
 REM SDKs and Version Control
-choco install python -y
 choco install dotnetcoresdk -y
 choco install git -y
 choco install nodejs -y
-choco install sql-server-2017 -y
+choco install sql-server-management-studio -y
 
 REM other tools
 choco install Toggl -y
 choco install 7zip -y
-choco install firefox -y
 choco install firefox -y
 choco install Postman -y
 choco install ILSpy -y
